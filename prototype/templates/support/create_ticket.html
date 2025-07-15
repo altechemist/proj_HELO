@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Create a New Support Ticket</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="subject" class="form-label">Subject</label>
+      <input
+        type="text"
+        class="form-control"
+        id="subject"
+        name="subject"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        rows="5"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="mt-4">
+    <a href="{% url 'support:ticket_list' %}" class="btn btn-secondary"
+      >Back to Tickets</a
+    >
+  </div>
+</div>
+{% endblock %}

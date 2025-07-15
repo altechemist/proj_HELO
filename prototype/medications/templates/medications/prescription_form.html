@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}Upload
+Prescription - HELO{% endblock %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h4 class="card-title mb-0">Upload Prescription</h4>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            Please ensure your prescription is clearly visible and includes all
+            required information. Accepted formats: JPG, PNG, PDF.
+          </div>
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{ form|crispy }}
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-upload me-2"></i>Upload Prescription
+              </button>
+              <a
+                href="{% url 'medications:prescriptions' %}"
+                class="btn btn-outline-secondary"
+              >
+                <i class="fas fa-arrow-left me-2"></i>Back to Prescriptions
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

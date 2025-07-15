@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Book a Ride</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="pickup_location" class="form-label">Pickup Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pickup_location"
+        name="pickup_location"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="dropoff_location" class="form-label">Dropoff Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dropoff_location"
+        name="dropoff_location"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="pickup_time" class="form-label">Pickup Time</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="pickup_time"
+        name="pickup_time"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Book Ride</button>
+  </form>
+</div>
+{% endblock %}

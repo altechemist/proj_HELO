@@ -1,0 +1,105 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media
+staticfiles
+.env
+.env.*
+*.sqlite3
+*.sqlite3-journal
+# VS Code
+.vscode/
+# Python
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+# PyInstaller
+*.manifest
+*.spec
+# Installer logs
+debug.log
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+# mypy
+.mypy_cache/
+.dmypy.json
+# Environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# Jupyter Notebook
+.ipynb_checkpoints
+# pyenv
+.python-version
+# celery beat schedule file
+celerybeat-schedule
+# SageMath
+*.sage.py
+# dotenv
+.env
+# virtualenv
+.venv/
+# Spyder project settings
+.spyderproject
+.spyproject
+# Rope project settings
+.ropeproject
+# mkdocs documentation
+/site
+# mypy
+.mypy_cache/
+.dmypy.json
+# Pyre type checker
+.pyre/
+# Django stuff:
+*.mo
+*.pot
+# Sphinx documentation
+/docs/_build/
+# PyBuilder
+/target/
+# profiling
+.prof
+# Django migrations
+**/migrations/*.pyc
+**/migrations/*.pyo
+**/migrations/*.pyd
+**/migrations/__pycache__/
+# System files
+.DS_Store
+Thumbs.db

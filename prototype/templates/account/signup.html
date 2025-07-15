@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% load i18n %} {% load crispy_forms_tags %} {% block
+title %}{% trans "Sign Up" %} - HELO{% endblock %} {% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h4 class="card-title mb-0">{% trans "Sign Up" %}</h4>
+      </div>
+      <div class="card-body">
+        <form
+          class="signup"
+          id="signup_form"
+          method="post"
+          action="{% url 'account_signup' %}"
+        >
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              {{ form.email|as_crispy_field }} {{
+              form.first_name|as_crispy_field }} {{
+              form.last_name|as_crispy_field }}
+            </div>
+            <div class="col-md-6">
+              {{ form.password1|as_crispy_field }} {{
+              form.password2|as_crispy_field }} {{
+              form.phone_number|as_crispy_field }}
+            </div>
+          </div>
+          {{ form.address|as_crispy_field }} {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">
+              {% trans "Sign Up" %}
+            </button>
+          </div>
+        </form>
+        <hr />
+        <div class="text-center">
+          <p class="mb-0">
+            {% trans "Already have an account?" %}
+            <a href="{{ login_url }}" class="text-primary"
+              >{% trans "Sign In" %}</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

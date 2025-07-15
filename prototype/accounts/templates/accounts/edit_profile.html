@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}Edit
+Profile - HELO{% endblock %} {% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h4 class="card-title mb-0">Edit Profile</h4>
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="row mb-4">
+            <div class="col-md-4 text-center">
+              {% if profile.profile_picture %}
+              <img
+                src="{{ profile.profile_picture.url }}"
+                alt="Current Profile Picture"
+                class="rounded-circle img-fluid mb-3"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              {% else %}
+              <img
+                src="{% static 'images/default-profile.png' %}"
+                alt="Default Profile Picture"
+                class="rounded-circle img-fluid mb-3"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              {% endif %} {{ form.profile_picture|as_crispy_field }}
+            </div>
+            <div class="col-md-8">
+              <h5>Profile Picture</h5>
+              <p class="text-muted">
+                Upload a new profile picture or keep your current one. The image
+                should be clear and show your face.
+              </p>
+              <ul class="text-muted">
+                <li>Maximum file size: 5MB</li>
+                <li>Supported formats: JPG, PNG</li>
+                <li>Recommended size: 500x500 pixels</li>
+              </ul>
+            </div>
+          </div>
+
+          <h5 class="mb-3">Emergency Contact</h5>
+          <div class="row">
+            <div class="col-md-6">
+              {{ form.emergency_contact|as_crispy_field }}
+            </div>
+          </div>
+
+          <h5 class="mb-3">Medical Information</h5>
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            This information helps us provide better service during medical
+            transportation.
+          </div>
+          {{ form.medical_conditions|as_crispy_field }}
+
+          <h5 class="mb-3">Preferences</h5>
+          <div class="row">
+            <div class="col-md-6">
+              {{ form.preferred_hospital|as_crispy_field }}
+            </div>
+            <div class="col-md-6">
+              {{ form.preferred_pharmacy|as_crispy_field }}
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save me-2"></i>Save Changes
+            </button>
+            <a
+              href="{% url 'accounts:profile' %}"
+              class="btn btn-outline-secondary"
+            >
+              <i class="fas fa-times me-2"></i>Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

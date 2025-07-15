@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Available Rides</h1>
+  {% if rides %}
+  <ul class="list-group">
+    {% for ride in rides %}
+    <li class="list-group-item">
+      <strong>Ride #{{ ride.id }}</strong><br />
+      Pickup: {{ ride.pickup_location }}<br />
+      Dropoff: {{ ride.dropoff_location }}<br />
+      Status: {{ ride.get_status_display }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No rides available at the moment.</p>
+  {% endif %}
+  <div class="mt-4">
+    <a href="{% url 'dashboard:home' %}" class="btn btn-secondary"
+      >Back to Dashboard</a
+    >
+  </div>
+</div>
+{% endblock %}

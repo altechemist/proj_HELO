@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Your Support Tickets</h1>
+  {% if tickets %}
+  <ul class="list-group">
+    {% for ticket in tickets %}
+    <li class="list-group-item">
+      <strong>Ticket #{{ ticket.id }}</strong><br />
+      Subject: {{ ticket.subject }}<br />
+      Status: {{ ticket.get_status_display }}<br />
+      Created: {{ ticket.created_at|date:"M d, Y H:i" }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No support tickets found.</p>
+  {% endif %}
+  <div class="mt-4">
+    <a href="{% url 'support:create_ticket' %}" class="btn btn-primary"
+      >Create New Ticket</a
+    >
+  </div>
+</div>
+{% endblock %}
