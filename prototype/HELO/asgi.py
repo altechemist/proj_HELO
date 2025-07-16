@@ -1,5 +1,5 @@
 """
-ASGI config for medcare project.
+ASGI config for HELO project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'medcare.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HELO.settings')
 
 application = get_asgi_application()

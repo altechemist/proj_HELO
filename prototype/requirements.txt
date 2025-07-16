@@ -1,21 +1,37 @@
 # Requirements for HELO Django Project
+
+# Core Django
 Django==5.0.2
-channels==4.0.0
-channels-redis==4.2.0
-django-allauth==0.61.0
+django-environ==0.11.2
+python-dotenv==1.0.1
+
+# Django Extensions
 django-crispy-forms==2.1
 crispy-bootstrap5==2024.2
 django-bootstrap5==23.4
-django-notifications-hq==1.8.2
+django-allauth==0.61.0
 django-phonenumber-field[phonenumbers]==7.3.0
-django-environ==0.11.2
-python-dotenv==1.0.1
-pillow==10.2.0
-redis==5.0.1
+
+# Real-time features
+channels==4.0.0
+channels-redis==4.2.0  # Optional: for production with Redis
+redis==5.0.1           # Optional: for production with Redis
+
+# Notifications
+django-notifications-hq==1.8.3
+
+# Image handling (install manually if needed for ImageField support)
+# pillow>=10.0.0  # Run: pip install pillow
+
+# Compatibility for Python 3.12+
+setuptools
 
 # Optional: For production
-# gunicorn
-# psycopg2-binary
+# gunicorn>=21.0.0
+# psycopg2-binary>=2.9.0
+
+# Development tools
+# django-debug-toolbar>=4.0.0
 
 # Python version constraint
-# python>=3.8,<3.12  # Uncomment this line if using pip-tools
+# Supports Python 3.8 to 3.13
